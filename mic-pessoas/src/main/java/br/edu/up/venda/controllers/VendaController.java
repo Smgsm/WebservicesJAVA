@@ -31,8 +31,13 @@ public class VendaController {
     }
 
     @PostMapping("/vendas")
-    Venda incluir(@RequestBody Venda novaVenda){
-        return repository.save(novaVenda);
+    public String incluir(@RequestBody Venda novaVenda){
+        
+        if(novaVenda.getProduto().getQuantidade() > novaVenda.getQuantidade() ){
+            return "Erro no processamento da venda! Quantidade requerida excedida!";
+        }
+        repository.save(novaVenda);
+        return "Venda realizada com sucesso!";
     }
 
 

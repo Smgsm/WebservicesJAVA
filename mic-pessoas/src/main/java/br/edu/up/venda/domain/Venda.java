@@ -1,6 +1,7 @@
 package br.edu.up.venda.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.Id;
@@ -13,7 +14,7 @@ import br.edu.up.produto.domain.Produto;
 public class Venda {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
